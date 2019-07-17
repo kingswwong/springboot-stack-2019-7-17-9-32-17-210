@@ -30,8 +30,10 @@ public class BaseServiceImpl<T, ID> implements BaseService<T, ID> {
         return baseRepository.saveAll(ts);
     }
 
-
-
+    @Override
+    public List<T> findAll(Sort sort) {
+        return baseRepository.findAll(sort);
+    }
 
     @Override
     public T findById(ID id) {

@@ -12,6 +12,7 @@ public interface BaseService<T, ID> {
     T update(T t);
     List<T> saveAll(List<T> ts);
     List<T> findAll();
+    List<T> findAll(Sort sort);
     Page<T> findAll(int page, int size);
     T findById(ID id);
     Page<T> findAllByKeyword(Example<T> example, int page, int size, Sort sort);
