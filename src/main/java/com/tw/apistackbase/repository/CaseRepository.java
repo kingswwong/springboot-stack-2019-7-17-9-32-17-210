@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface CaseRepository extends BaseRepository<Case, Long> {
 
+    List<Case> findAllByNameEquals(String name);
 }

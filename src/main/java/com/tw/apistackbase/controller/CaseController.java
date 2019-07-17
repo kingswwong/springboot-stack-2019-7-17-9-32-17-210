@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public class CaseController extends BaseController<Case, Long> {
     @Autowired
     private CaseService caseService;
 
-    public CaseController(@Autowired CaseService caseService) {
+    public CaseController(CaseService caseService) {
         super(caseService);
     }
 
@@ -28,5 +29,10 @@ public class CaseController extends BaseController<Case, Long> {
     public List<Case> findAll() {
         Sort sort = new Sort(Sort.Direction.DESC,"occurrenceTime");
         return caseService.findAll(sort);
+    }
+
+    @GetMapping(params = {"name"})
+    public List<Case> findAllByName(@RequestParam String name){
+        return caseService.findAllByName(name);
     }
 }
