@@ -1,13 +1,13 @@
 package com.tw.apistackbase.repository;
 
 import com.tw.apistackbase.base.BaseRepository;
-import com.tw.apistackbase.entity.Case;
+import com.tw.apistackbase.entity.CaseBasic;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface CaseRepository extends BaseRepository<Case, Long> {
+public interface CaseBasicRepository extends BaseRepository<CaseBasic, Long> {
 
-    List<Case> findAllByNameEquals(String name);
+    List<CaseBasic> findAllByNameEquals(String name);
 }

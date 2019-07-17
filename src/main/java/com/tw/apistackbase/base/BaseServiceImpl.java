@@ -61,4 +61,6 @@ public class BaseServiceImpl<T, ID> implements BaseService<T, ID> {
     public void delete(T t) {
         baseRepository.delete(t);
     }
+
+
 }

@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table
-public class Case {
+public class CaseBasic {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -12,6 +12,7 @@ public class Case {
     private String name;
     @Column(nullable = false)
     private Long occurrenceTime;
+
 
     public Long getId() {
         return id;

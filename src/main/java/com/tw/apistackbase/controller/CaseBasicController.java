@@ -1,9 +1,8 @@
 package com.tw.apistackbase.controller;
 
 import com.tw.apistackbase.base.BaseController;
-import com.tw.apistackbase.base.BaseService;
-import com.tw.apistackbase.entity.Case;
-import com.tw.apistackbase.service.CaseService;
+import com.tw.apistackbase.entity.CaseBasic;
+import com.tw.apistackbase.service.CaseBasicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,27 +11,26 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.SortedMap;
 
 @RestController
 @RequestMapping("/cases")
-public class CaseController extends BaseController<Case, Long> {
+public class CaseBasicController extends BaseController<CaseBasic, Long> {
 
     @Autowired
-    private CaseService caseService;
+    private CaseBasicService caseBasicService;
 
-    public CaseController(CaseService caseService) {
-        super(caseService);
+    public CaseBasicController(CaseBasicService caseBasicService) {
+        super(caseBasicService);
     }
 
     @GetMapping
-    public List<Case> findAll() {
+    public List<CaseBasic> findAll() {
         Sort sort = new Sort(Sort.Direction.DESC,"occurrenceTime");
-        return caseService.findAll(sort);
+        return caseBasicService.findAll(sort);
     }
 
     @GetMapping(params = {"name"})
-    public List<Case> findAllByName(@RequestParam String name){
-        return caseService.findAllByName(name);
+    public List<CaseBasic> findAllByName(@RequestParam String name){
+        return caseBasicService.findAllByName(name);
     }
 }
