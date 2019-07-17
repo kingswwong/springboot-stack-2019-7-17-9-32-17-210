@@ -15,7 +15,7 @@ public class CaseBasic {
     @OneToOne
     @JoinColumn(name = "case_detail_id",referencedColumnName = "id")
     private CaseDetail caseDetail;
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "procuratorate_id",referencedColumnName = "id")
     private Procuratorate procuratorate;
 
