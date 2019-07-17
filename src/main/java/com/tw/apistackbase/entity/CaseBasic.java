@@ -12,6 +12,12 @@ public class CaseBasic {
     private String name;
     @Column(nullable = false)
     private Long occurrenceTime;
+    @OneToOne
+    @JoinColumn(name = "case_detail_id",referencedColumnName = "id")
+    private CaseDetail caseDetail;
+    @OneToMany
+    @JoinColumn(name = "procuratorate_id",referencedColumnName = "id")
+    private Procuratorate procuratorate;
 
 
     public Long getId() {
@@ -36,5 +42,21 @@ public class CaseBasic {
 
     public void setOccurrenceTime(Long occurrenceTime) {
         this.occurrenceTime = occurrenceTime;
+    }
+
+    public CaseDetail getCaseDetail() {
+        return caseDetail;
+    }
+
+    public void setCaseDetail(CaseDetail caseDetail) {
+        this.caseDetail = caseDetail;
+    }
+
+    public Procuratorate getProcuratorate() {
+        return procuratorate;
+    }
+
+    public void setProcuratorate(Procuratorate procuratorate) {
+        this.procuratorate = procuratorate;
     }
 }
