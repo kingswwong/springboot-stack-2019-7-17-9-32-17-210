@@ -12,9 +12,7 @@ public class CaseDetail {
     private String subjectiveDescription;
     @Column(nullable = false)
     private String objectiveDescription;
-    @OneToOne
-    @JoinColumn(name = "case_basic_id",referencedColumnName = "id")
-    private CaseBasic caseBasic;
+
 
     public Long getId() {
         return id;
@@ -38,13 +36,5 @@ public class CaseDetail {
 
     public void setObjectiveDescription(String objectiveDescription) {
         this.objectiveDescription = objectiveDescription;
-    }
-
-    public CaseBasic getCaseBasic() {
-        return caseBasic;
-    }
-
-    public void setCaseBasic(CaseBasic caseBasic) {
-        this.caseBasic = caseBasic;
     }
 }

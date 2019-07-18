@@ -12,10 +12,10 @@ public class CaseBasic {
     private String name;
     @Column(nullable = false)
     private Long occurrenceTime;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "case_detail_id",referencedColumnName = "id")
     private CaseDetail caseDetail;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "procuratorate_id",referencedColumnName = "id")
     private Procuratorate procuratorate;
 

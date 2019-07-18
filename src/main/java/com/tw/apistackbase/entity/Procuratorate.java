@@ -11,9 +11,10 @@ public class Procuratorate {
     private Long id;
     @Column(nullable = false,unique=true,length = 50)
     private String procuratorateName;
-    @OneToMany(fetch = FetchType.LAZY)
+
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "inquisitor_id")
-    private List<Inquisitor> inquisitorList;
+    private List<Inquisitor> inquisitors;
 
     public Long getId() {
         return id;
@@ -31,11 +32,11 @@ public class Procuratorate {
         this.procuratorateName = procuratorateName;
     }
 
-    public List<Inquisitor> getInquisitorList() {
-        return inquisitorList;
+    public List<Inquisitor> getInquisitors() {
+        return inquisitors;
     }
 
-    public void setInquisitorList(List<Inquisitor> inquisitorList) {
-        this.inquisitorList = inquisitorList;
+    public void setInquisitors(List<Inquisitor> inquisitors) {
+        this.inquisitors = inquisitors;
     }
 }
