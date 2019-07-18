@@ -11,7 +11,7 @@ public class Procuratorate {
     private Long id;
     @Column(nullable = false,unique=true,length = 50)
     private String procuratorateName;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "inquisitor_id")
     private List<Inquisitor> inquisitorList;
 
